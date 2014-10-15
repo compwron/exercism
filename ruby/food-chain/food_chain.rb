@@ -14,7 +14,15 @@ class FoodChainSong
 		return bird_addendum if animal == 'bird'
 		'' end
 	def optional_pre_addendum(num, animal)
-		num == 1 && animal == 'spider' ? ".\nIt " : ' that ' end
+		puts "num is #{num}"
+		if animal == 'spider'
+			if num == 1
+				return ".\nIt "
+			end
+			return ' that '
+		end
+		''
+	end
 
 	def animals
 		['fly', 'spider', 'bird'] end
@@ -31,7 +39,7 @@ class FoodChainSong
 		return '' if num <= 1 
 		animal = animals[num - 1]
 		prev_animal = animals[num - 2]
-		a = 'She swallowed the ' + animal + ' to catch the ' + prev_animal + optional_pre_addendum(num, prev_animal) + optional_addendum(prev_animal) 
+		a = 'She swallowed the ' + animal + ' to catch the ' + prev_animal + optional_pre_addendum(num -1, prev_animal) + optional_addendum(prev_animal) 
 		return a if num == 1 
 		a + causes(num - 1)
 	end
