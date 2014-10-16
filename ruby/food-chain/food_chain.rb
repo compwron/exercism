@@ -1,4 +1,7 @@
 class FoodChainSong
+	# Cool solutions:
+	 # http://exercism.io/submissions/bee01e51ef3054e53212a357
+	 # http://exercism.io/submissions/670af96b81477fca83696093
 
 	def verse(num)
 		all_verses[num] 
@@ -34,14 +37,18 @@ class FoodChainSong
 		['fly', 'spider', 'bird', 'cat', 'dog', 'goat', 'cow', 'horse']
 	end
 	
-	def causes()
+	def causes(verse_num)
+		return '' if verse_num > 2
+		verse_num.downto(2).map { |n|
+			"#{cause(animals[n -1], animals[n-2])}"
+		}.join
 	end
 
 	def all_verses
 		{1 => "#{old_lady_swallowed('fly')}\n#{dunno_why_fly}\n",
 		 2 => "#{old_lady_swallowed('spider')}
 It #{spider_description}.
-#{cause('spider', 'fly')}.
+#{causes(2)}.
 #{dunno_why_fly}\n",
       	 3 => "#{old_lady_swallowed('bird')}
 How absurd to swallow a bird!
