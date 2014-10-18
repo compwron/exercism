@@ -34,13 +34,20 @@ class FoodChainSong
 	end
 
 	def animals
-		['fly', 'spider', 'bird', 'cat', 'dog', 'goat', 'cow', 'horse']
+		{'fly' => '', 
+			'spider' => '', 
+			'bird' => '',
+			'cat' => '',
+			'dog' => '', 
+			'goat' => '', 
+			'cow' => '', 
+			'horse' => ''}
 	end
 	
 	def causes(verse_num)
 		return '' if verse_num > 2
 		verse_num.downto(2).map { |n|
-			"#{cause(animals[n -1], animals[n-2])}"
+			"#{cause(animals.keys[n -1], animals.keys[n-2])}"
 		}.join
 	end
 
