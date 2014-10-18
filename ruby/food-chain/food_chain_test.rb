@@ -13,6 +13,7 @@ class FoodChainTest < MiniTest::Unit::TestCase
 
   def test_fly
     expected = "I know an old lady who swallowed a fly.\nI don't know why she swallowed the fly. Perhaps she'll die.\n"
+    puts "expected:\n#{expected}"
     assert_equal expected, song.verse(1)
   end
 
