@@ -22,6 +22,7 @@ class FoodChainSong
 		if num == 1 then
 			a
 		elsif num == 2
+			puts "\ncurrent:\n#{a}"
 			a
   		elsif num == 3
   			"I know an old lady who swallowed a bird.\n" +
