@@ -15,11 +15,11 @@ class SumOfMultiples
 
 	def self._foo num
 		divisors = [3, 5]
-		1.upto(num).select {|n|
+		1.upto(num -1).select {|n|
 			divisors.map {|d|
 				n % d == 0
 			}.any?
-		}.inject(&:*) || 0
+		}.inject(&:+) || 0
 	end
 
 

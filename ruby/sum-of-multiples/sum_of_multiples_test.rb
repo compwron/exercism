@@ -11,9 +11,9 @@ class SumTest < MiniTest::Unit::TestCase
     assert_equal 3, SumOfMultiples.to(4)
   end
 
-  # def test_sum_to_10
-  #   assert_equal 23, SumOfMultiples.to(10)
-  # end
+  def test_sum_to_10
+    assert_equal 23, SumOfMultiples.to(10)
+  end
 
   # def test_sum_to_1000
   #   assert_equal 233168, SumOfMultiples.to(1000)
