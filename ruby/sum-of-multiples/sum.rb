@@ -2,7 +2,6 @@ class SumOfMultiples
 	DEFAULT_DIVISORS = [3, 5]
 
 	def initialize *nums
-		puts "hai"
 		@divisors = *nums
 	end
 
