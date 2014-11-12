@@ -15,13 +15,13 @@ class SumTest < MiniTest::Unit::TestCase
     assert_equal 23, SumOfMultiples.to(10)
   end
 
-  # def test_sum_to_1000
-  #   assert_equal 233168, SumOfMultiples.to(1000)
-  # end
+  def test_sum_to_1000
+    assert_equal 233168, SumOfMultiples.to(1000)
+  end
 
-  # def test_configurable_7_13_17_to_20
-  #   assert_equal 51, SumOfMultiples.new(7, 13, 17).to(20)
-  # end
+  def test_configurable_7_13_17_to_20
+    assert_equal 51, SumOfMultiples.new(7, 13, 17).to(20)
+  end
 
   # def test_configurable_43_47_to_10000
   #   assert_equal 2203160, SumOfMultiples.new(43, 47).to(10_000)
