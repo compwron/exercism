@@ -1,6 +1,6 @@
 class Series
   def initialize(input)
-    @numbers = input.split('').map(&:to_i)
+    @numbers = input.chars.map(&:to_i)
   end
 
   def slices(num)
