@@ -1,9 +1,11 @@
 class Array
-   def keep
-    self.map{ |element| element if yield element }.compact
-  end
+  # credit to http://exercism.io/submissions/9793e12b1db6a2929df004d1
 
-  def discard
-    self.map{ |element| element unless yield element }.compact
+  def keep(&block)
+    keep_if { |elem| block.call(elem) }
+end
+
+  def discard(&block)
+    keep_if { |elem| !block.call(elem) }
   end
 end
