@@ -21,8 +21,8 @@ class BeerSong
   end
 
   def _next_num(num)
-    a = _singular?(num) ? num - 1 : 'no more'
-    a == -1 ? 99 : a
+  	return 99 if num == 0
+    _singular?(num) ? num - 1 : 'no more'
   end
 
   def _beer_on_wall(num)
