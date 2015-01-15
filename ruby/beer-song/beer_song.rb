@@ -1,18 +1,44 @@
 class BeerSong
   def verse(num)
-    singular = num != 1
+    "#{_beer_on_wall_sentence_start num} bottle#{_plural_s num} of beer on the wall, #{_beer_on_wall num} bottle#{_plural_s num} of beer.\n" \
+      "#{_do_next num} #{_next_num num} bottle#{_next_plural_s num} of beer on the wall.\n"
+  end
 
-    beer_on_wall_sentence_start = num == 0 ? 'No more' : num
-    beer_on_wall = num == 0 ? beer_on_wall_sentence_start.downcase : num
-    next_num = singular ? num - 1 : 'no more'
-    next_num = next_num == -1 ? 99 : next_num
-    plural_s = singular ? 's' : ''
-    next_plural_s = num != 2 ? 's' : ''
-    down_bottle = singular ? 'one' : 'it'
-    do_next = num == 0 ? 'Go to the store and buy some more,' : "Take #{down_bottle} down and pass it around,"
+  def _do_next num
+    num == 0 ? 'Go to the store and buy some more,' : "Take #{_down_bottle num} down and pass it around,"
+  end
 
-    "#{beer_on_wall_sentence_start} bottle#{plural_s} of beer on the wall, #{beer_on_wall} bottle#{plural_s} of beer.\n" \
-      "#{do_next} #{next_num} bottle#{next_plural_s} of beer on the wall.\n"
+  def _down_bottle(num)
+    _singular?(num) ? 'one' : 'it'
+  end
+
+  def _next_plural_s(num)
+    num != 2 ? 's' : ''
+  end
+
+  def _plural_s(num)
+    _singular?(num) ? 's' : ''
+  end
+
+  def _next_num(num)
+    a = _singular?(num) ? num - 1 : 'no more'
+    a == -1 ? 99 : a
+  end
+
+  def _beer_on_wall(num)
+    num == 0 ? _beer_on_wall_sentence_start(num).downcase : num
+  end
+
+  def _beer_on_wall_sentence_start(num)
+    num == 0 ? 'No more' : num
+  end
+
+  def _singular?(num)
+    num != 1
+  end
+
+  def _zeroith?(num)
+    num == 0
   end
 
   def verses(large_verse, small_verse)
@@ -20,6 +46,6 @@ class BeerSong
   end
 
   def sing
-  	verses(99, 0)
+    verses(99, 0)
   end
 end
