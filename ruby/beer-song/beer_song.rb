@@ -42,7 +42,10 @@ class BeerSong
   end
 
   def verses(large_verse, small_verse)
-    large_verse.downto(small_verse).map { |num| verse num }.join("\n")[0..-1] + "\n"
+  	 large_verse
+      .downto(small_verse)
+      .collect { |num| verse(num) }
+      .join("\n") << "\n"
   end
 
   def sing
