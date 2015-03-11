@@ -9,7 +9,7 @@ class SpaceAge
     jupiter: 11.862615,
     saturn:  29.447498,
     uranus:  84.016846,
-    neptune: 164.79132
+    neptune: 164.79132,
   }
   PLANETS.each do|planet, years|
     define_method("on_#{planet}") do
