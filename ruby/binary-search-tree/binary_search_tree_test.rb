@@ -2,30 +2,30 @@ require 'minitest/autorun'
 require_relative 'bst'
 
 class BstTest < MiniTest::Unit::TestCase
-  # def test_data_is_retained
-  #   assert_equal 4, Bst.new(4).data
-  # end
+  def test_data_is_retained
+    assert_equal 4, Bst.new(4).data
+  end
 
-  # def test_inserting_less
-  #   four = Bst.new 4
-  #   four.insert 2
-  #   assert_equal 4, four.data
-  #   assert_equal 2, four.left.data
-  # end
+  def test_inserting_less
+    four = Bst.new 4
+    four.insert 2
+    assert_equal 4, four.data
+    assert_equal 2, four.left.data
+  end
 
-  # def test_inserting_same
-  #   four = Bst.new 4
-  #   four.insert 4
-  #   assert_equal 4, four.data
-  #   assert_equal 4, four.left.data
-  # end
+  def test_inserting_same
+    four = Bst.new 4
+    four.insert 4
+    assert_equal 4, four.data
+    assert_equal 4, four.left.data
+  end
 
-  # def test_inserting_right
-  #   four = Bst.new 4
-  #   four.insert 5
-  #   assert_equal 4, four.data
-  #   assert_equal 5, four.right.data
-  # end
+  def test_inserting_right
+    four = Bst.new 4
+    four.insert 5
+    assert_equal 4, four.data
+    assert_equal 5, four.right.data
+  end
 
   # rubocop:disable Metrics/AbcSize
   def test_complex_tree # rubocop:disable Metrics/MethodLength
