@@ -1,7 +1,6 @@
 class Bst
 	attr_accessor :data, :left, :right
 	def initialize num
-		p "initializing with num #{num}"
 		@data = num 
 		@left = nil
 		@right = nil
@@ -11,7 +10,6 @@ class Bst
 	L = 'left'
 
 	def insert datum
-		return if datum == data
 		dir = (datum > data ? R : L)
 		if dir == R
 			if right == nil
@@ -29,5 +27,13 @@ class Bst
 			left.insert datum
 			return
 		end
+	end
+
+	def each &block
+		all = []
+		all << left.each if left
+		all << right.each if right
+		all << data
+		all.each {|i| yield i }
 	end
 end

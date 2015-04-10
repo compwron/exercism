@@ -47,12 +47,13 @@ class BstTest < MiniTest::Unit::TestCase
 
   def record_all_data(bst)
     all_data = []
-    bst.each { |data| all_data << data }
+    bst.each { |data| 
+      all_data << data }
     all_data
   end
 
   def test_iterating_one_element
-    skip
+    assert_equal [1, 2, 3], record_all_data([1, 2, 3])
     assert_equal [4], record_all_data(Bst.new 4)
   end
 
