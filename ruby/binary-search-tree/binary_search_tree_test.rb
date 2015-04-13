@@ -47,31 +47,28 @@ class BstTest < MiniTest::Unit::TestCase
 
   def record_all_data(bst)
     all_data = []
-    bst.each { |data| all_data << data }
+    bst.each { |data|
+      all_data << data }
     all_data
   end
 
   def test_iterating_one_element
-    skip
     assert_equal [4], record_all_data(Bst.new 4)
   end
 
   def test_iterating_over_smaller_element
-    skip
     four = Bst.new 4
     four.insert 2
     assert_equal [2, 4], record_all_data(four)
   end
 
   def test_iterating_over_larger_element
-    skip
     four = Bst.new 4
     four.insert 5
     assert_equal [4, 5], record_all_data(four)
   end
 
   def test_iterating_over_complex_tree
-    skip
     four = Bst.new 4
     four.insert 2
     four.insert 1
