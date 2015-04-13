@@ -1,4 +1,3 @@
-require 'pry'
 class Bst
 	attr_accessor :data, :left, :right
 	def initialize num
