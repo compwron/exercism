@@ -12,7 +12,9 @@ class Complement
 
 	def self.complement(input, mappings)
 		input.each_char.map { |b| 
-			mappings[b]
+			m = mappings[b]
+			raise ArgumentError if m.nil?
+			m
 		}.join
 	end
 end
