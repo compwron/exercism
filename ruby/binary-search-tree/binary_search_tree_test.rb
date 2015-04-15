@@ -47,7 +47,7 @@ class BstTest < MiniTest::Unit::TestCase
 
   def record_all_data(bst)
     all_data = []
-    bst.each { |data|
+    bst.each { |data| 
       all_data << data }
     all_data
   end

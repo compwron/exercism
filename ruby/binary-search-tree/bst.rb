@@ -31,12 +31,9 @@ class Bst
 
 	def each &block
 		all = []
-		all << left.each  if left
+		all << left.each if left
 		all << right.each if right
 		all << data
-		if block
-			all.flatten.sort.each { |i| yield(i) }
-		end
-		all
+		all.each {|i| yield i }
 	end
 end
