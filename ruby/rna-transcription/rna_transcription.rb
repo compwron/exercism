@@ -1,18 +1,18 @@
 class Complement
-	@dna_rna = {'G' => 'C', 'C' => 'G', 'T' => 'A', 'A' => 'U'}
-	@rna_dna = @dna_rna.invert
+	DNA_RNA = {'G' => 'C', 'C' => 'G', 'T' => 'A', 'A' => 'U'}
+	RNA_DNA = DNA_RNA.invert
 
 	def self.of_dna(dna)
-		complement(dna, @dna_rna)
+		complement(dna, DNA_RNA)
 	end
 
 	def self.of_rna(rna)
-		complement(rna, @rna_dna)
+		complement(rna, RNA_DNA)
 	end
 
 	def self.complement(input, mappings)
-		input.each_char.map { |b| 
-			m = mappings[b] 
+		input.each_char.map { |b|
+			m = mappings[b]
 			raise ArgumentError if m.nil?
 			m
 		}.join
