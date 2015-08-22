@@ -1,39 +1,23 @@
+# thanks http://exercism.io/submissions/c08321e0c75a45e3aef21a388819d286
 class Bst
-	attr_accessor :data, :left, :right
-	def initialize num
-		@data = num 
-		@left = nil
-		@right = nil
-	end
+  attr_reader :data, :left, :right
 
-	R = 'right'
-	L = 'left'
+  def initialize(data)
+    @data = data
+  end
 
-	def insert datum
-		dir = (datum > data ? R : L)
-		if dir == R
-			if right == nil
-				@right = Bst.new(datum)
-				return
-			end
-			right.insert datum
-			return
-		end
-		if dir == L
-			if left == nil
-				@left = Bst.new(datum)
-				return
-			end
-			left.insert datum
-			return
-		end
-	end
+  def insert(data)
+    if data > self.data
+      @right ? @right.insert(data) : @right = Bst.new(data)
+    else
+      @left ? @left.insert(data) : @left = Bst.new(data)
+    end
+  end
 
-	def each &block
-		all = []
-		all << left.each if left
-		all << right.each if right
-		all << data
-		all.each {|i| yield i }
-	end
+  def each(&block)
+    return enum_for(:each) unless block
+    left.each(&block) if left
+    block.call(data)
+    right.each(&block) if right
+  end
 end
